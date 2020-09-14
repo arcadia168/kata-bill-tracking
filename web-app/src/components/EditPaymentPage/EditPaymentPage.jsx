@@ -4,6 +4,7 @@ import React, {
 } from 'react'
 import {
     useParams,
+    useHistory
 } from 'react-router-dom'
 import axios from 'axios';
 
@@ -14,6 +15,8 @@ import { updatePayment, deletePayment } from '../../state/payments';
 import { useDispatch } from 'react-redux'
 
 const EditPaymentPage = props => {
+    const history = useHistory();
+
     const { id } = useParams();
     const [paymentId] = useState(id);
     const [name, setName] = useState();
@@ -41,48 +44,34 @@ const EditPaymentPage = props => {
         }
 
         getBillDetailsFromServer();
-      }, paymentId);
+      }, []);
 
     const dispatch = useDispatch()
 
     async function updatePaymentOnServer(updatedPayment) {
-        const { id } = updatedPayment;
-
         try {
-            debugger;
             const response = await axios.patch(
                 `http://localhost:8080/payments/${paymentId}`,
                 updatedPayment
             );
-            debugger;
-            console.info(`The update of the payment was successful`);
-            console.info(`server response is: ${JSON.stringify(response)}`);
-
-            // Invoke success action in redux, pass in bills.
             dispatch(updatePayment(response.data));
+            history.push(`/`)
         } catch(error) {
             console.error(`An error occurred updating the bill on the server: ${JSON.stringify(error)}`);
-
-            //TODO: Invoke an error action.
+            //TODO: Error handling - show error banner! Set error state via dispatch
         }
     }
 
     async function deletePaymentOnServer(paymentId) {
         try {
-            debugger;
-            const response = await axios.delete(
+            await axios.delete(
                 `http://localhost:8080/payments/${paymentId}`,
             );
-            debugger;
-            console.info(`The update of the payment was successful`);
-            console.info(`server response is: ${JSON.stringify(response)}`);
-
-            // Invoke success action in redux, pass in bills.
             dispatch(deletePayment(paymentId));
+            history.push(`/`)
         } catch(error) {
             console.error(`An error occurred fetching bills from the server: ${JSON.stringify(error)}`);
-
-            //TODO: Invoke an error action.
+            //TODO: Error handling - show error banner! Set error state via dispatch
         }
     }
 

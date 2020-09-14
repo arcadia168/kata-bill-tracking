@@ -19,15 +19,9 @@ const Home = () => {
     async function getBillsFromServer() {
       try {
           const response = await axios.get('http://localhost:8080/payments');
-          console.info(`The bills fetch was successful`);
-          console.info(`server response is: ${JSON.stringify(response)}`);
-
-          // Invoke success action in redux, pass in bills.
           dispatch(fetchPayments(response.data));
       } catch(error) {
           console.error(`An error occurred fetching bills from the server: ${JSON.stringify(error)}`);
-
-          //TODO: Invoke an error action.
       }
     }
 
