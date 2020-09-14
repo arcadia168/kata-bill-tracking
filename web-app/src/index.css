@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap');
+@import './components/TitleBanner/TitleBanner.css';
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Hind', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -14,7 +17,6 @@ body {
   --payment-tracker-medium-grey: #445368;
   --payment-tracker-dark-grey: #445368;
   --payment-tracker-sizing-unit: 8px;
-  --payment-tracker-font-family: Hind;
 }
 
 code {
@@ -22,4 +24,4 @@ code {
     monospace;
 }
 
-@import './components/TitleBanner/TitleBanner.css';
+

@@ -6,7 +6,6 @@
     display: flex;
     align-items: center;
     align-content: center;
-    font: var(--payment-tracker-font-family);
 }
 
 .title-banner__title {
