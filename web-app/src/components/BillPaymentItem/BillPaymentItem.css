@@ -15,7 +15,7 @@
     justify-content: space-between;
     color: var(--payment-tracker-medium-grey);
     font-size: 16pt;
-    font-weight: bold;
+    font-weight: normal;
 }
 
 .bill-payment-item_frequency-and-date-container {
