@@ -16,7 +16,12 @@ export default () => (
     <Router>
       <Switch>
         <Route exact path="/">
-          <HomePage />
+          <BillPaymentItem
+            name="Netflix"
+            price="£11.99"
+            frequency="Monthly"
+            nextOccurringDate="06/09/2020"
+          />
         </Route>
         <Route path="/add_payment">
           <Example />

@@ -1,0 +1,25 @@
+.bill-payment-item__container {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid var(--payment-tracker-light-grey);
+    color: var(--payment-tracker-dark-grey);
+    margin: var(--payment-tracker-sizing-unit);
+    text-decoration: none;
+}
+
+.bill-payment-item__name-and-price-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    color: var(--payment-tracker-medium-grey);
+    font-size: 16pt;
+    font-weight: bold;
+}
+
+.bill-payment-item_frequency-and-date-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12pt;
+    color: var(--payment-tracker-light-grey);
+}
