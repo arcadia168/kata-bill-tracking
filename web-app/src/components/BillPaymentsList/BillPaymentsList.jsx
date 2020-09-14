@@ -5,7 +5,7 @@ const BillPaymentsList = props => {
     const { bills } = props;
 
     return (
-        <ul className="bill-payments-list__container">
+        <div className="bill-payments-list__container">
             {
                 bills.map((bill, index) =>
                     <BillPaymentItem
@@ -17,7 +17,7 @@ const BillPaymentsList = props => {
                     />
                 )
             }
-        </ul>
+        </div>
     );
 }
 

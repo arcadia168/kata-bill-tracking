@@ -9,18 +9,42 @@ import {
 import store from './state/store'
 import { createPayment } from './state/payments'
 import HomePage from './components/HomePage/HomePage';
-import BillPaymentItem from './components/BillPaymentItem/BillPaymentItem'
+import BillPaymentsList from './components/BillPaymentsList/BillPaymentsList'
 
 export default () => (
   <Provider store={store}>
     <Router>
       <Switch>
         <Route exact path="/">
-          <BillPaymentItem
-            name="Netflix"
-            price="£11.99"
-            frequency="Monthly"
-            nextOccurringDate="06/09/2020"
+          <BillPaymentsList
+            bills={
+              [
+                {
+                    name: 'Rent',
+                    price: '£500',
+                    frequency: 'Monthly',
+                    nextOccurringDate: '7th January, 2021'
+                },
+                {
+                    name: 'Gym Membership',
+                    price: '£19',
+                    frequency: 'Monthly',
+                    nextOccurringDate: '1st February, 2021'
+                },
+                {
+                    name: 'TV License',
+                    price: '£157.50',
+                    frequency: 'Annual',
+                    nextOccurringDate: '28th April, 2021'
+                },
+                {
+                    name: 'Dog Walker',
+                    price: '£20',
+                    frequency: 'Weekly',
+                    nextOccurringDate: '7th January, 2021'
+                },
+            ]
+            }
           />
         </Route>
         <Route path="/add_payment">
