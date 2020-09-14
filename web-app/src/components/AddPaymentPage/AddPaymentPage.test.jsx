@@ -11,6 +11,8 @@ describe('Add Payment Page', () => {
         expect(getByText('Add A Bill')).toBeInTheDocument()
     })
 
+    // TODO: Test htmlFor the form component
+
     it('Renders button to add new payment', () => {
         const { getByText } = render(
             <AddPaymentPage />

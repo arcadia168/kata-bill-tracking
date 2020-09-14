@@ -1,9 +1,6 @@
 import React, {
     useState,
 } from 'react'
-import {
-    useHistory,
-} from 'react-router-dom'
 import axios from 'axios';
 
 import TitleBanner from '../TitleBanner/TitleBanner';
@@ -13,8 +10,6 @@ import { createPayment } from '../../state/payments';
 import { useDispatch } from 'react-redux'
 
 const AddPaymentPage = props => {
-    const history = useHistory();
-
     const [name, setName] = useState();
     const [price, setPrice] = useState();
     const [nextOccurringDate, setNextOccurringDate] = useState();
@@ -24,9 +19,7 @@ const AddPaymentPage = props => {
 
     async function createNewPayment(newPayment) {
         try {
-            debugger;
             const response = await axios.post('http://localhost:8080/payments', newPayment);
-            debugger;
             console.info(`The creation of the new payment was successful`);
             console.info(`server response is: ${JSON.stringify(response)}`);
 
@@ -56,7 +49,6 @@ const AddPaymentPage = props => {
                 buttonLabel={'Add new payment'}
                 deleteButton={false}
                 onClickHandler={() => {
-                    debugger;
                     //TODO: Validate fields here
                     const newPayment = {
                         name,

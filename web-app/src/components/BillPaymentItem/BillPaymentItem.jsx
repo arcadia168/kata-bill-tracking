@@ -5,6 +5,7 @@ import {
 
 const BillPaymentItem = props => {
     const { id, name, price, frequency, nextOccurringDate } = props;
+    console.info(`props are: ${JSON.stringify(props)}`);
     const history = useHistory();
 
     return (
@@ -17,7 +18,7 @@ const BillPaymentItem = props => {
                     {name}
                 </div>
                 <div className="bill-payment-item__price">
-                    {`£${price.toFixed(2)}`}
+                    {`£${Number(price).toFixed(2)}`}
                 </div>
             </div>
             <div className="bill-payment-item_frequency-and-date-container">

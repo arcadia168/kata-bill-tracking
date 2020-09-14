@@ -18,9 +18,7 @@ const Home = () => {
   useEffect(() => {
     async function getBillsFromServer() {
       try {
-          debugger;
           const response = await axios.get('http://localhost:8080/payments');
-          debugger;
           console.info(`The bills fetch was successful`);
           console.info(`server response is: ${JSON.stringify(response)}`);
 
