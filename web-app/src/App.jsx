@@ -9,7 +9,8 @@ import {
 import store from './state/store'
 import { createPayment } from './state/payments'
 import HomePage from './components/HomePage/HomePage';
-import BillPaymentsList from './components/BillPaymentsList/BillPaymentsList'
+// import EditPaymentPage from './components/EditPaymentPage/EditPaymentPage';
+import AddPaymentPage from './components/AddPaymentPage/AddPaymentPage';
 
 export default () => (
   <Provider store={store}>
@@ -19,11 +20,11 @@ export default () => (
           <HomePage />
         </Route>
         <Route path="/add_payment">
-          <Example />
+          <AddPaymentPage />
         </Route>
-        <Route path="/edit_payment">
-          <Example />
-        </Route>
+        {/* <Route path="/edit_payment/:id">
+          <EditPaymentPage />
+        </Route> */}
       </Switch>
     </Router>
   </Provider>
