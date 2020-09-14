@@ -8,14 +8,14 @@ import {
 } from 'react-router-dom'
 import store from './state/store'
 import { createPayment } from './state/payments'
-import TitleBanner from './components/TitleBanner/TitleBanner';
+import HomePage from './components/HomePage/HomePage';
 
 export default () => (
   <Provider store={store}>
     <Router>
       <Switch>
         <Route exact path="/">
-          <Home />
+          <HomePage />
         </Route>
         <Route path="/add_payment">
           <Example />
@@ -26,13 +26,6 @@ export default () => (
       </Switch>
     </Router>
   </Provider>
-)
-
-const Home = () => (
-  <div>
-    <TitleBanner title="Home" />
-    <Link to="/example">Go to /example</Link>
-  </div>
 )
 
 const Example = () => {
