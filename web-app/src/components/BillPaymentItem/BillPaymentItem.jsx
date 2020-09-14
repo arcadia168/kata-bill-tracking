@@ -1,13 +1,17 @@
 import React from 'react'
 import {
-    Link,
+    useHistory,
 } from 'react-router-dom'
 
 const BillPaymentItem = props => {
-    const { name, price, frequency, nextOccurringDate } = props;
+    const { id, name, price, frequency, nextOccurringDate } = props;
+    const history = useHistory();
 
     return (
-        <Link to="/example" className="bill-payment-item__container">
+        <div
+            onClick={() => {history.push(`edit_payment/${id}`)}}
+            className="bill-payment-item__container"
+        >
             <div className="bill-payment-item__name-and-price-container">
                 <div className="bill-payment-item__name">
                     {name}
@@ -24,7 +28,7 @@ const BillPaymentItem = props => {
                     Next: {nextOccurringDate}
                 </div>
             </div>
-        </Link>
+        </div>
     );
 }
 
