@@ -8,19 +8,16 @@ const paymentsSlice = createSlice({
   initialState: [],
   reducers: {
     fetchPayments: (state, action) => {
-      debugger;
       console.info(`fetchPayments action handler invoked with paylod:`);
       console.info(action.payload);
       return state = action.payload;
     },
     createPayment: (state, action) => {
-      debugger;
       console.info(`createPayment action handler invoked with paylod:`);
       console.log(action.payload)
       return state = state.concat(action.payload);
     },
     updatePayment: (state, action) => {
-      debugger;
       console.info(`updatePayment action handler invoked with paylod:`);
       console.log(action.payload);
 
@@ -36,7 +33,6 @@ const paymentsSlice = createSlice({
       return state = newUpdatedPayments;
     },
     deletePayment: (state, action) => {
-      debugger;
       console.info(`deletePayment action handler invoked with paylod:`);
       console.log(action.payload);
 
