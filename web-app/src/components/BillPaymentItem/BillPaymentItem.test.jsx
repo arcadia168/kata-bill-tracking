@@ -4,7 +4,7 @@ import {
     BrowserRouter as Router,
     Route,
 } from 'react-router-dom'
-import BillPaymentItem from './BillPayment'
+import BillPaymentItem from './BillPaymentItem/BillPaymentItem'
 
 describe('Bill Payment Item', () => {
     it('Renders the name of the bill', () => {
