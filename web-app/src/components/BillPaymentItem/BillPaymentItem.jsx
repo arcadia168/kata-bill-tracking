@@ -17,10 +17,10 @@ const BillPaymentItem = props => {
                 </div>
             </div>
             <div className="bill-payment-item_frequency-and-date-container">
-                <div className="bill-payment-item__price">
+                <div className="bill-payment-item__frequency">
                     {frequency}
                 </div>
-                <div className="bill-payment-item__price">
+                <div className="bill-payment-item__next-occurrence">
                     Next: {nextOccurringDate}
                 </div>
             </div>
