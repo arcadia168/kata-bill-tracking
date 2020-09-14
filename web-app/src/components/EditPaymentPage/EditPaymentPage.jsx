@@ -27,11 +27,7 @@ const EditPaymentPage = props => {
     useEffect(() => {
         async function getBillDetailsFromServer() {
           try {
-              debugger;
               const response = await axios.get(`http://localhost:8080/payments/${id}`);
-              console.info(`The bills fetch was successful`);
-              console.info(`server response is: ${JSON.stringify(response)}`);
-
               setName(response.data.name);
               setPrice(response.data.price);
               setNextOccurringDate(response.data.nextOccurringDate)
@@ -92,7 +88,6 @@ const EditPaymentPage = props => {
                 buttonLabel={'Save'}
                 deleteButton={false}
                 onClickHandler={() => {
-                    debugger;
                     //TODO: Validate fields here
 
                     const updatedPayment = {
