@@ -18,4 +18,8 @@ describe('Home page', () => {
 
       expect(getByText('Regular Payments')).toBeInTheDocument()
   })
+
+  // test it renders list of payments
+
+  // test it renders add button
 })

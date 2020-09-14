@@ -32,7 +32,7 @@ const Home = () => {
     }
 
     getBillsFromServer();
-  }, payments);
+  }, []);
 
   return (
       <div className="home-page__container">
