@@ -4,7 +4,9 @@
     border-bottom: 1px solid var(--payment-tracker-light-grey);
     color: var(--payment-tracker-dark-grey);
     margin: var(--payment-tracker-sizing-unit);
+    margin-bottom: 0;
     text-decoration: none;
+    align-content: space-around
 }
 
 .bill-payment-item__name-and-price-container {
