@@ -3,6 +3,7 @@
 @import './components/BillPaymentItem/BillPaymentItem.css';
 @import './components/BillPaymentsList/BillPaymentsList.css';
 @import './components/PaymentTrackerButton/PaymentTrackerButton.css';
+@import './components/PaymentDetailsForm/PaymentDetailsForm.css';
 
 body {
   margin: 0;
