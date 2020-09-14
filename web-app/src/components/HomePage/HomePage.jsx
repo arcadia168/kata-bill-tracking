@@ -1,11 +1,15 @@
 import React from 'react'
 import TitleBanner from '../TitleBanner/TitleBanner';
 import BillPaymentsList from '../BillPaymentsList/BillPaymentsList';
+import PaymentTrackerButton from '../PaymentTrackerButton/PaymentTrackerButton';
 import {
     Link,
+    useHistory
 } from 'react-router-dom'
 
 const Home = () => {
+  const history = useHistory();
+
   const bills =  [
     {
         name: 'Rent',
@@ -38,7 +42,12 @@ const Home = () => {
       <TitleBanner title="Regular Payments" />
       <BillPaymentsList
             bills={bills}
-          />
+      />
+      <PaymentTrackerButton
+        buttonLabel={'Add a bill'}
+        deleteButton={false}
+        onClickHandler={() => {history.push('add_payment')}}
+      />
     </div>
   )
 }
