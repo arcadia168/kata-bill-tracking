@@ -4,6 +4,9 @@ const paymentsSlice = createSlice({
   name: 'payments',
   initialState: [],
   reducers: {
+    getPayments: (state, action) => {
+
+    },
     createPayment: (state, action) => {
       state.push(action.payload)
       console.log(action.payload)

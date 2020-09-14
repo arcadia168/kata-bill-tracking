@@ -5,13 +5,15 @@ import {
     BrowserRouter as Router,
     Route,
 } from 'react-router-dom'
+import { Provider, useDispatch, useSelector } from 'react-redux'
+import store from '../../state/store'
 
 describe('Home page', () => {
   it('Renders a title banner with title', () => {
       const { getByText } = render(
-            <Router>
+            <Provider store={store}>
                 <HomePage />
-            </Router>
+            </Provider>
           )
 
       expect(getByText('Regular Payments')).toBeInTheDocument()

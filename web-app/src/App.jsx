@@ -1,13 +1,12 @@
 import React from 'react'
-import { Provider, useDispatch, useSelector } from 'react-redux'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link,
 } from 'react-router-dom'
+import { Provider, useDispatch, useSelector } from 'react-redux'
 import store from './state/store'
-import { createPayment } from './state/payments'
 import HomePage from './components/HomePage/HomePage';
 // import EditPaymentPage from './components/EditPaymentPage/EditPaymentPage';
 import AddPaymentPage from './components/AddPaymentPage/AddPaymentPage';
@@ -29,22 +28,3 @@ export default () => (
     </Router>
   </Provider>
 )
-
-const Example = () => {
-  const dispatch = useDispatch()
-  const payments = useSelector(store => store.payments)
-
-  const exampleAddPayment = () => dispatch(createPayment({
-    name: 'Hello World',
-  }))
-
-  return (
-    <div>
-      <h2>Example</h2>
-      {payments.map((payment, index) => (
-        <p key={index}>{payment.name}</p>
-      ))}
-      <button onClick={exampleAddPayment}>Add Payment</button>
-    </div>
-  )
-}

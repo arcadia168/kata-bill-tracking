@@ -1,0 +1,31 @@
+.payment-details__container {
+    display: flex;
+    flex-direction: column;
+    color: var(--payment-tracker-dark-grey);
+    margin: var(--payment-tracker-sizing-unit);
+    margin-bottom: 0;
+    text-decoration: none;
+    align-content: space-around;
+}
+
+.payment-details__input-container {
+    border-bottom: 1px solid var(--payment-tracker-light-grey);
+    height: calc(var(--payment-tracker-sizing-unit) * 7);
+    margin: auto calc(var(--payment-tracker-sizing-unit) * 15);
+
+    /* swap for edit/add mode */
+    display: flex;
+    flex-direction: column;;
+}
+
+/* .payment-details__input-container--edit-mode {
+
+} */
+
+/* .payment-details__input-container--add-mode {
+
+} */
+
+.payment-details__input {
+    all: unset;
+}
