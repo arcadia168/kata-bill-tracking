@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import axios from 'axios';
 import TitleBanner from '../TitleBanner/TitleBanner';
 import BillPaymentsList from '../BillPaymentsList/BillPaymentsList';
 import PaymentTrackerButton from '../PaymentTrackerButton/PaymentTrackerButton';
 import {
     useHistory
 } from 'react-router-dom'
-import { Provider, useDispatch, useSelector } from 'react-redux'
-import { createPayment } from '../../state/payments';
-import store from '../../state/store'
+import { useDispatch, useSelector } from 'react-redux'
+import { createPayment, fetchPayments } from '../../state/payments';
+// import { getBillsFromServer } from '../../server-util';
 
 const Home = () => {
   const history = useHistory();
@@ -15,16 +16,32 @@ const Home = () => {
   const dispatch = useDispatch()
   const payments = useSelector(store => store.payments)
 
-  const exampleAddPayment = () => dispatch(createPayment({
-    name: 'Hello World',
-  }))
+  useEffect(() => {
+    async function getBillsFromServer() {
+      try {
+          debugger;
+          const response = await axios.get('http://localhost:8080/payments');
+          debugger;
+          console.info(`The bills fetch was successful`);
+          console.info(`server response is: ${JSON.stringify(response)}`);
+
+          // Invoke success action in redux, pass in bills.
+          dispatch(fetchPayments(response.data));
+      } catch(error) {
+          console.error(`An error occurred fetching bills from the server: ${JSON.stringify(error)}`);
+
+          //invoke error action in Redux.
+          return new Error('Fetching existing bills failed');
+      }
+    }
+
+    getBillsFromServer();
+  }, payments);
 
   return (
       <div className="home-page__container">
         <TitleBanner title="Regular Payments" />
-        <BillPaymentsList
-              bills={payments}
-              />
+        <BillPaymentsList bills={payments}/>
         <PaymentTrackerButton
           buttonLabel={'Add a bill'}
           deleteButton={false}
@@ -33,24 +50,5 @@ const Home = () => {
       </div>
   )
 }
-
-// const Example = () => {
-//   const dispatch = useDispatch()
-//   const payments = useSelector(store => store.payments)
-
-//   const exampleAddPayment = () => dispatch(createPayment({
-//     name: 'Hello World',
-//   }))
-
-//   return (
-//     <div>
-//       <h2>Example</h2>
-//       {payments.map((payment, index) => (
-//         <p key={index}>{payment.name}</p>
-//       ))}
-//       <button onClick={exampleAddPayment}>Add Payment</button>
-//     </div>
-//   )
-// }
 
 export default Home;

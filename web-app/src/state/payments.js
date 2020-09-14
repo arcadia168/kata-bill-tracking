@@ -4,12 +4,17 @@ const paymentsSlice = createSlice({
   name: 'payments',
   initialState: [],
   reducers: {
-    getPayments: (state, action) => {
-
+    fetchPayments: (state, action) => {
+      debugger;
+      console.info(`fetchPayments action handler invoked with paylod:`);
+      console.info(action.payload);
+      return state = state.concat(action.payload);
     },
     createPayment: (state, action) => {
-      state.push(action.payload)
+      debugger;
+      console.info(`createPayment action handler invoked with paylod:`);
       console.log(action.payload)
+      return state = state.concat(action.payload);
     },
     updatePayment: (state, action) => console.log(action.payload),
     deletePayment: (state, action) => console.log(action.payload),
@@ -17,5 +22,5 @@ const paymentsSlice = createSlice({
 })
 
 const { actions, reducer } = paymentsSlice
-export const { createPayment, updatePayment, deletePayment } = actions
+export const { fetchPayments, createPayment, updatePayment, deletePayment } = actions
 export default reducer
