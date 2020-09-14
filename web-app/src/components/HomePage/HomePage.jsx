@@ -31,7 +31,9 @@ const Home = () => {
   return (
       <div className="home-page__container">
         <TitleBanner title="Regular Payments" />
-        <BillPaymentsList bills={payments}/>
+        <div className="home-page__bill-list-container">
+          <BillPaymentsList bills={payments}/>
+        </div>
         <PaymentTrackerButton
           buttonLabel={'Add a bill'}
           deleteButton={false}
