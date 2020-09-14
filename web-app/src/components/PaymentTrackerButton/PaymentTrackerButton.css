@@ -1,13 +1,15 @@
 .payment-tracker-button {
     all: unset;
-    height: calc(var(--payment-tracker-sizing-unit) * 6);
+    height: calc(var(--payment-tracker-sizing-unit) * 5);
     border-radius: calc(var(--payment-tracker-sizing-unit) * 3);
-    width: calc(var(--payment-tracker-sizing-unit) * 30);
+    width: calc(var(--payment-tracker-sizing-unit) * 35);
     display: table-cell;
     vertical-align: middle;
     color: white;
+    font-weight: normal;
     text-align: center;
     margin: calc(var(--payment-tracker-sizing-unit) * 2) auto;
+    margin-top: calc(var(--payment-tracker-sizing-unit) * 8);
     padding: 0;
 }
 
