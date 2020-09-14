@@ -7,26 +7,30 @@ app.use(cors());
 const port = process.env.PORT || 8080
 const payments =  [
   {
+      id: uuid(),
       name: 'Rent',
-      price: '£500',
+      price: 500,
       frequency: 'Monthly',
       nextOccurringDate: '7th January, 2021'
   },
   {
+      id: uuid(),
       name: 'Gym Membership',
-      price: '£19',
+      price: 19,
       frequency: 'Monthly',
       nextOccurringDate: '1st February, 2021'
   },
   {
+      id: uuid(),
       name: 'TV License',
-      price: '£157.50',
+      price: 157.50,
       frequency: 'Annual',
       nextOccurringDate: '28th April, 2021'
   },
   {
+      id: uuid(),
       name: 'Dog Walker',
-      price: '£20',
+      price: 20,
       frequency: 'Weekly',
       nextOccurringDate: '7th January, 2021'
   },

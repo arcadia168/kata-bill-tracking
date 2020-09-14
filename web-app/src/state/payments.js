@@ -8,7 +8,7 @@ const paymentsSlice = createSlice({
       debugger;
       console.info(`fetchPayments action handler invoked with paylod:`);
       console.info(action.payload);
-      return state = state.concat(action.payload);
+      return state = action.payload;
     },
     createPayment: (state, action) => {
       debugger;

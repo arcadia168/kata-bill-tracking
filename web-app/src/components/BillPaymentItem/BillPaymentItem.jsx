@@ -17,7 +17,7 @@ const BillPaymentItem = props => {
                     {name}
                 </div>
                 <div className="bill-payment-item__price">
-                    {price}
+                    {`£${price.toFixed(2)}`}
                 </div>
             </div>
             <div className="bill-payment-item_frequency-and-date-container">

@@ -7,8 +7,7 @@ import {
     useHistory
 } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { createPayment, fetchPayments } from '../../state/payments';
-// import { getBillsFromServer } from '../../server-util';
+import { fetchPayments } from '../../state/payments';
 
 const Home = () => {
   const history = useHistory();
@@ -30,8 +29,7 @@ const Home = () => {
       } catch(error) {
           console.error(`An error occurred fetching bills from the server: ${JSON.stringify(error)}`);
 
-          //invoke error action in Redux.
-          return new Error('Fetching existing bills failed');
+          //TODO: Invoke an error action.
       }
     }
 
