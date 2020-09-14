@@ -14,24 +14,24 @@ const PaymentDetailsForm = props => {
     } = props;
 
     return (
-        <div className="payment-details__container">
-            <div className="payment-details__input-container">
-                <label for="bill_name">Name</label>
+        <div className="payment-details-form__container">
+            <div className="payment-details-form__input-container">
+                <label htmlFor="bill_name">Name</label>
                 <input
                     id="bill_name"
                     name="bill_name"
-                    className="payment-details__input payment-details__name"
+                    className="payment-details-form__input payment-details-form__name"
                     type="text"
                     value={name}
                     onChange={e => setName(e.target.value)}
                 />
             </div>
-            <div className="payment-details__input-container">
-                <label for="bill_amount">Amount</label>
+            <div className="payment-details-form__input-container">
+                <label htmlFor="bill_amount">Amount</label>
                 <input
                     id="bill_amount"
                     name="bill_amount"
-                    className="payment-details__input payment-details__amount"
+                    className="payment-details-form__input payment-details-form__amount"
                     type="number"
                     value={price}
                     onChange={e => {
@@ -39,12 +39,12 @@ const PaymentDetailsForm = props => {
                     }}
                 />
             </div>
-            <div className="payment-details__input-container">
-                <label for="bill_date">Start Date</label>
+            <div className="payment-details-form__input-container">
+                <label htmlFor="bill_date">Start Date</label>
                 <input
                     id="bill_date"
                     name="bill_date"
-                    className="payment-details__input payment-details__start-date"
+                    className="payment-details-form__input payment-details-form__start-date"
                     type="date"
                     value={nextOccurringDate}
                     onChange={e => {
@@ -52,12 +52,12 @@ const PaymentDetailsForm = props => {
                     }}
                 />
             </div>
-            <div className="payment-details__input-container">
-                <label for="bill_frequency">Frequency</label>
+            <div className="payment-details-form__input-container">
+                <label htmlFor="bill_frequency">Frequency</label>
                 <select
                     id="bill_frequency"
                     name="bill_frequency"
-                    className="payment-details__input payment-details__frequency"
+                    className="payment-details-form__input payment-details-form__frequency"
                     name="frequency"
                     id="frequency"
                     onChange={e => {

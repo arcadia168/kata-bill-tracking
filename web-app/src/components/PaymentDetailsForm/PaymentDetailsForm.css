@@ -1,4 +1,4 @@
-.payment-details__container {
+.payment-details-form__container {
     display: flex;
     flex-direction: column;
     color: var(--payment-tracker-dark-grey);
@@ -8,7 +8,7 @@
     align-content: space-around;
 }
 
-.payment-details__input-container {
+.payment-details-form__input-container {
     border-bottom: 1px solid var(--payment-tracker-light-grey);
     height: calc(var(--payment-tracker-sizing-unit) * 7);
     margin: auto calc(var(--payment-tracker-sizing-unit) * 15);
@@ -16,6 +16,6 @@
     flex-direction: column;;
 }
 
-.payment-details__input {
+.payment-details-form__input {
     all: unset;
 }

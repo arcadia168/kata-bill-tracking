@@ -10,6 +10,7 @@ const BillPaymentsList = props => {
                 bills.map((bill, index) =>
                     <BillPaymentItem
                         key={index}
+                        id={bill.id}
                         name={bill.name}
                         price={bill.price}
                         frequency={bill.frequency}
