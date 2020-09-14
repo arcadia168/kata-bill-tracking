@@ -9,6 +9,7 @@ import {
 import store from './state/store'
 import { createPayment } from './state/payments'
 import HomePage from './components/HomePage/HomePage';
+import BillPaymentItem from './components/BillPaymentItem/BillPaymentItem'
 
 export default () => (
   <Provider store={store}>
