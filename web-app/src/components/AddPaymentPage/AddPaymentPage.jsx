@@ -8,14 +8,18 @@ import PaymentDetailsForm from '../PaymentDetailsForm/PaymentDetailsForm';
 import PaymentTrackerButton from '../PaymentTrackerButton/PaymentTrackerButton';
 import { createPayment } from '../../state/payments';
 import { useDispatch } from 'react-redux'
+import {
+    useHistory
+} from 'react-router-dom'
 
 const AddPaymentPage = props => {
+    const dispatch = useDispatch();
+    const history = useHistory();
+
     const [name, setName] = useState();
     const [price, setPrice] = useState();
     const [nextOccurringDate, setNextOccurringDate] = useState();
     const [frequency, setFrequency] = useState();
-
-    const dispatch = useDispatch()
 
     async function createNewPayment(newPayment) {
         try {
@@ -25,6 +29,7 @@ const AddPaymentPage = props => {
 
             // Invoke success action in redux, pass in bills.
             dispatch(createPayment(response.data));
+            history.push(`/`)
         } catch(error) {
             console.error(`An error occurred fetching bills from the server: ${JSON.stringify(error)}`);
 
