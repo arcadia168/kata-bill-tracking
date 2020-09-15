@@ -4,7 +4,7 @@ import {
     BrowserRouter as Router,
     Route,
 } from 'react-router-dom'
-import BillPaymentItem from './BillPaymentItem/BillPaymentItem'
+import BillPaymentItem from './BillPaymentItem'
 
 describe('Bill Payment Item', () => {
     it('Renders the name of the bill', () => {
@@ -12,7 +12,7 @@ describe('Bill Payment Item', () => {
             <Router>
                 <BillPaymentItem
                     name="Netflix"
-                    price="£11.99"
+                    price="11.99"
                     frequency="Monthly"
                     nextOccurringDate="06/09/2020"
                 />
@@ -27,7 +27,7 @@ describe('Bill Payment Item', () => {
             <Router>
                 <BillPaymentItem
                     name="Netflix"
-                    price="£11.99"
+                    price="11.99"
                     frequency="Monthly"
                     nextOccurringDate="06/09/2020"
                 />
@@ -42,7 +42,7 @@ describe('Bill Payment Item', () => {
             <Router>
                 <BillPaymentItem
                     name="Netflix"
-                    price="£11.99"
+                    price="11.99"
                     frequency="Monthly"
                     nextOccurringDate="06/09/2020"
                 />
@@ -57,7 +57,7 @@ describe('Bill Payment Item', () => {
             <Router>
                 <BillPaymentItem
                     name="Netflix"
-                    price="£11.99"
+                    price="11.99"
                     frequency="Monthly"
                     nextOccurringDate="06/09/2020"
                 />
