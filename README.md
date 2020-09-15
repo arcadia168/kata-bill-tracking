@@ -2,7 +2,7 @@
 
 ## Bill Payment Tracker Code Kata ##
 
-A React application that allows the management of regular payments.
+A React application built using Redux and Thunks. Allows for the management of regular payments.
 A basic React application built using `Create React App` and includes `Redux Toolkit` and `React Router`.
 A simple Node API used to store, modify, retrieve and delete payments.
 
@@ -40,6 +40,9 @@ _Please note, the API stores objects in-memory, there is no database, therefore 
 
 ## Still to add/Missing features ##
 
+- Better styling of the add payment page
+- Separate styling for the 'edit mode' of the payment details page.
+- Better formatting of dates (using MomentJS on the server side!)
 - Better error handling
 - Use of Thunks
 - More unit testing!
