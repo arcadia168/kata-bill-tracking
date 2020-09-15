@@ -43,5 +43,6 @@ _Please note, the API stores objects in-memory, there is no database, therefore 
 - Use of Thunks
 - More unit testing!
 - End to end tests with Cypress/Nightwatch
-- Talk a real MongoDB
+- Talk a real MongoDB hosted in Mongolab
+- Host on cloud - GCP/AWS/Azure
 - Validation!!! Of input fields and sanitization
