@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
-import axios from "axios";
 
+import { updateBillPayment, fetchBillPaymentDetails, deleteBillPayment } from "../../state/payments";
 import TitleBanner from "../TitleBanner/TitleBanner";
 import PaymentDetailsForm from "../PaymentDetailsForm/PaymentDetailsForm";
 import PaymentTrackerButton from "../PaymentTrackerButton/PaymentTrackerButton";
-import { updateBillPayment, fetchBillPaymentDetails, deletePayment } from "../../state/payments";
-import { useDispatch, useSelector } from "react-redux";
 
 const EditPaymentPage = (props) => {
     const dispatch = useDispatch();
@@ -30,22 +29,6 @@ const EditPaymentPage = (props) => {
     setNextOccurringDate(billPaymentDetails.nextOccurringDate);
     setFrequency(billPaymentDetails.frequency);
     }, []);
-
-
-  async function deletePaymentOnServer(paymentId) {
-    try {
-      await axios.delete(`http://localhost:8080/payments/${paymentId}`);
-      dispatch(deletePayment(paymentId));
-      history.push(`/`);
-    } catch (error) {
-      console.error(
-        `An error occurred fetching bills from the server: ${JSON.stringify(
-          error
-        )}`
-      );
-      //TODO: Error handling - show error banner! Set error state via dispatch
-    }
-  }
 
   return (
     <div className="edit-payment-page__container">
@@ -86,7 +69,8 @@ const EditPaymentPage = (props) => {
           deleteButton={true}
           onClickHandler={() => {
             console.info(`Delete button clicked`);
-            deletePaymentOnServer(paymentId);
+            dispatch(deleteBillPayment(paymentId));
+            history.push('/');
           }}
         />
       </div>

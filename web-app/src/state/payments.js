@@ -77,27 +77,30 @@ export const fetchBillPaymentDetails = createAsyncThunk(
   }
 );
 
+export const deleteBillPayment = createAsyncThunk(
+  "payments/deleteBillPayment",
+  async (billPaymentId) => {
+    debugger;
+    try {
+      await axios.delete(`http://localhost:8080/payments/${billPaymentId}`);
+      return billPaymentId;
+    } catch (error) {
+      console.error(
+        `An error occurred deleting a bill from the server: ${JSON.stringify(
+          error
+        )}`
+      );
+    }
+  }
+)
+
 const paymentsSlice = createSlice({
   name: "payments",
   initialState: {
     loading: "idle",
     payments: [],
   },
-  reducers: {
-    deletePayment: (state, action) => {
-      console.info(`deletePayment action handler invoked with paylod:`);
-      console.log(action.payload);
-
-      const newUpdatedPayments = state.map((payment) => {
-        if (payment.id === action.payload.id) {
-          return;
-        }
-        return payment;
-      });
-
-      return (state.payments = newUpdatedPayments);
-    },
-  },
+  reducers: {},
   extraReducers: {
     [fetchBillPayments.pending.type]: (state, action) => {},
     [fetchBillPayments.fulfilled.type]: (state, action) => {
@@ -147,7 +150,21 @@ const paymentsSlice = createSlice({
       state.payments = state.payments.concat(action.payload);
     },
     [createBillPayment.rejected.type]: (state, action) => {},
+    [deleteBillPayment.pending.type]: (state, action) => {},
+    [deleteBillPayment.fulfilled.type]: (state, action) => {
+      console.info(`deleteBillPayment.fulfilled.type action handler invoked with paylod:`);
+      console.log(action.payload);
 
+      const newUpdatedPayments = state.payments.map((payment) => {
+        if (payment.id === action.payload.id) {
+          return;
+        }
+        return payment;
+      });
+
+      state.payments = newUpdatedPayments;
+    },
+    [deleteBillPayment.rejected.type]: (state, action) => {},
   },
 });
 
