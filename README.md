@@ -23,17 +23,6 @@ _Please note, the API stores objects in-memory, there is no database, therefore 
     - `yarn install`
     - `yarn start`
 
-## How my styling looks ##
-
-### Add Bill ###
-![Add a bill](https://github.com/arcadia168/kata-bill-tracking/blob/master/src/add_bill_page.png?raw=true "Add Bill")
-
-### Home Page ###
-![Home Page](https://github.com/arcadia168/kata-bill-tracking/blob/master/src/home_page.png "Home Page")
-
-### Edit/Delete Bill ###
-![Edit/Delete Bill](https://github.com/arcadia168/kata-bill-tracking/blob/master/src/edit_delete_page.png?raw=true "Edit/Delete Bill")
-
 ## Features ##
 
 - Built using React
