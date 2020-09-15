@@ -25,6 +25,14 @@ _Please note, the API stores objects in-memory, there is no database, therefore 
 
 ## How my styling looks ##
 
+### Add Bill ###
+![Add a bill](web-app/src/web-app/src/add_bill_page.png?raw=true "Add Bill")
+
+### Home Page ###
+![Home Page](web-app/src/web-app/src/home_page.png "Home Page")
+
+### Edit/Delete Bill ###
+![Edit/Delete Bill](web-app/src/web-app/src/edit_delete_page.png?raw=true "Edit/Delete Bill")
 
 ## Features ##
 
