@@ -72,42 +72,46 @@ const EditPaymentPage = props => {
     }
 
     return (
-        <div className="add-payment-page__container">
-            <TitleBanner title="Add A Bill" />
-            <PaymentDetailsForm
-                name={name}
-                setName={setName}
-                price={price}
-                setPrice={setPrice}
-                nextOccurringDate={nextOccurringDate}
-                setNextOccurringDate={setNextOccurringDate}
-                frequency={frequency}
-                setFrequency={setFrequency}
-            />
-            <PaymentTrackerButton
-                buttonLabel={'Save'}
-                deleteButton={false}
-                onClickHandler={() => {
-                    //TODO: Validate fields here
+        <div className="edit-payment-page__container">
+            <TitleBanner title="Edit A Bill" />
+            <div className="edit-payment-page__content">
+                <h1 className="edit-payment-page__subtitle">{name}</h1>
+                <h3 className="edit-payment-page__description">Keep track of your household spending by adding your bills</h3>
+                <PaymentDetailsForm
+                    name={name}
+                    setName={setName}
+                    price={price}
+                    setPrice={setPrice}
+                    nextOccurringDate={nextOccurringDate}
+                    setNextOccurringDate={setNextOccurringDate}
+                    frequency={frequency}
+                    setFrequency={setFrequency}
+                    />
+                <PaymentTrackerButton
+                    buttonLabel={'Save'}
+                    deleteButton={false}
+                    onClickHandler={() => {
+                        //TODO: Validate fields here
 
-                    const updatedPayment = {
-                        name,
-                        price,
-                        nextOccurringDate,
-                        frequency,
-                        id: paymentId
+                        const updatedPayment = {
+                            name,
+                            price,
+                            nextOccurringDate,
+                            frequency,
+                            id: paymentId
+                        }
+                        updatePaymentOnServer(updatedPayment)
+                    }}
+                    />
+                <PaymentTrackerButton
+                    buttonLabel={'Delete'}
+                    deleteButton={true}
+                    onClickHandler={() => {
+                        console.info(`Delete button clicked`)
+                        deletePaymentOnServer(paymentId)}
                     }
-                    updatePaymentOnServer(updatedPayment)
-                }}
-            />
-            <PaymentTrackerButton
-                buttonLabel={'Delete'}
-                deleteButton={true}
-                onClickHandler={() => {
-                    console.info(`Delete button clicked`)
-                    deletePaymentOnServer(paymentId)}
-                }
-            />
+                    />
+            </div>
         </div>
     );
 }

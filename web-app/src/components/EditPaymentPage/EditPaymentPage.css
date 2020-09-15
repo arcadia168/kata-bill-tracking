@@ -1,0 +1,27 @@
+.edit-payment-page__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-payment-page__content {
+    width: 75%;
+    margin: auto;
+}
+
+.edit-payment-page__subtitle {
+    align-self: center;
+    text-align: center;
+    margin-top: calc(var(--payment-tracker-sizing-unit) * 4);
+    margin-bottom: calc(var(--payment-tracker-sizing-unit) * 0.25);
+    font-weight: normal;
+    font-size: 20pt;
+}
+
+.edit-payment-page__description {
+    align-self: center;
+    text-align: center;
+    margin-top: calc(var(--payment-tracker-sizing-unit) * 0.25);
+    font-weight: normal;
+    font-size: 14pt;
+    color: var(--payment-tracker-light-grey);
+}
