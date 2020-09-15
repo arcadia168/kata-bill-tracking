@@ -7,25 +7,16 @@ import {
     useHistory
 } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchPayments } from '../../state/payments';
+import { fetchBillPayments } from '../../state/payments';
 
 const Home = () => {
   const history = useHistory();
 
   const dispatch = useDispatch()
-  const payments = useSelector(store => store.payments)
+  const payments = useSelector(store => store.payments.payments)
 
   useEffect(() => {
-    async function getBillsFromServer() {
-      try {
-          const response = await axios.get('http://localhost:8080/payments');
-          dispatch(fetchPayments(response.data));
-      } catch(error) {
-          console.error(`An error occurred fetching bills from the server: ${JSON.stringify(error)}`);
-      }
-    }
-
-    getBillsFromServer();
+    dispatch(fetchBillPayments())
   }, []);
 
   return (
