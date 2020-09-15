@@ -37,6 +37,25 @@ export const updateBillPayment = createAsyncThunk(
   }
 );
 
+export const fetchBillPaymentDetails = createAsyncThunk(
+  "payments/fetchBillPaymentDetails",
+  async (billPaymentId) => {
+    debugger;
+    try {
+      const response = await axios.get(
+        `http://localhost:8080/payments/${billPaymentId}`
+      );
+      return response.data;
+    } catch (error) {
+      console.error(
+        `An error occurred fetching a single bill details on the server: ${JSON.stringify(
+          error
+        )}`
+      );
+    }
+  }
+);
+
 const paymentsSlice = createSlice({
   name: "payments",
   initialState: {
@@ -44,28 +63,10 @@ const paymentsSlice = createSlice({
     payments: [],
   },
   reducers: {
-    fetchPayments: (state, action) => {
-      console.info(`fetchPayments action handler invoked with paylod:`);
-      console.info(action.payload);
-      return (state.payments = action.payload);
-    },
     createPayment: (state, action) => {
       console.info(`createPayment action handler invoked with paylod:`);
       console.log(action.payload);
       return (state.payments = state.concat(action.payload));
-    },
-    updatePayment: (state, action) => {
-      console.info(`updatePayment action handler invoked with paylod:`);
-      console.log(action.payload);
-
-      const newUpdatedPayments = state.map((payment) => {
-        if (payment.id === action.payload.id) {
-          return action.payload;
-        }
-        return payment;
-      });
-
-      return (state.payments = newUpdatedPayments);
     },
     deletePayment: (state, action) => {
       console.info(`deletePayment action handler invoked with paylod:`);
@@ -89,7 +90,9 @@ const paymentsSlice = createSlice({
     [fetchBillPayments.rejected.type]: (state, action) => {},
     [updateBillPayment.pending.type]: (state, action) => {},
     [updateBillPayment.fulfilled.type]: (state, action) => {
-      console.info(`updatePayment.fulfilled.type action handler invoked with paylod:`);
+      console.info(
+        `updatePayment.fulfilled.type action handler invoked with paylod:`
+      );
       console.log(action.payload);
 
       const newUpdatedPayments = state.payments.map((payment) => {
@@ -102,6 +105,24 @@ const paymentsSlice = createSlice({
       state.payments = newUpdatedPayments;
     },
     [updateBillPayment.rejected.type]: (state, action) => {},
+    [fetchBillPaymentDetails.pending.type]: (state, action) => {},
+    [fetchBillPaymentDetails.fulfilled.type]: (state, action) => {
+      console.info(
+        `fetchBillPaymentDetails.fulfilled.type action handler invoked with paylod:`
+      );
+      console.log(action.payload);
+
+      const newUpdatedPayments = state.payments.map((payment) => {
+        if (payment.id === action.payload.id) {
+          return action.payload;
+        }
+        return payment;
+      });
+
+      state.payments = newUpdatedPayments;
+    },
+    [fetchBillPaymentDetails.rejected.type]: (state, action) => {},
+
   },
 });
 

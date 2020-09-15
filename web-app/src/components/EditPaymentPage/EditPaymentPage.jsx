@@ -5,44 +5,32 @@ import axios from "axios";
 import TitleBanner from "../TitleBanner/TitleBanner";
 import PaymentDetailsForm from "../PaymentDetailsForm/PaymentDetailsForm";
 import PaymentTrackerButton from "../PaymentTrackerButton/PaymentTrackerButton";
-import { updateBillPayment, deletePayment } from "../../state/payments";
-import { useDispatch } from "react-redux";
+import { updateBillPayment, fetchBillPaymentDetails, deletePayment } from "../../state/payments";
+import { useDispatch, useSelector } from "react-redux";
 
 const EditPaymentPage = (props) => {
-  const history = useHistory();
+    const dispatch = useDispatch();
+    const payments = useSelector(store => store.payments.payments)
+    const history = useHistory();
 
-  const { id } = useParams();
-  const [paymentId] = useState(id);
-  const [name, setName] = useState();
-  const [price, setPrice] = useState();
-  const [nextOccurringDate, setNextOccurringDate] = useState();
-  const [frequency, setFrequency] = useState();
+    const { id } = useParams();
+    const [paymentId] = useState(id);
+    const [name, setName] = useState();
+    const [price, setPrice] = useState();
+    const [nextOccurringDate, setNextOccurringDate] = useState();
+    const [frequency, setFrequency] = useState();
 
-  useEffect(() => {
-    async function getBillDetailsFromServer() {
-      try {
-        const response = await axios.get(
-          `http://localhost:8080/payments/${id}`
-        );
-        setName(response.data.name);
-        setPrice(response.data.price);
-        setNextOccurringDate(response.data.nextOccurringDate);
-        setFrequency(response.data.frequency);
-      } catch (error) {
-        console.error(
-          `An error occurred fetching bills from the server: ${JSON.stringify(
-            error
-          )}`
-        );
+    useEffect(() => {
+    dispatch(fetchBillPaymentDetails(id));
 
-        //TODO: Invoke an error action.
-      }
-    }
+    const billPaymentDetails = payments.find(payment => payment.id === id);
 
-    getBillDetailsFromServer();
-  }, [id]);
+    setName(billPaymentDetails.name);
+    setPrice(billPaymentDetails.price);
+    setNextOccurringDate(billPaymentDetails.nextOccurringDate);
+    setFrequency(billPaymentDetails.frequency);
+    }, []);
 
-  const dispatch = useDispatch();
 
   async function deletePaymentOnServer(paymentId) {
     try {
