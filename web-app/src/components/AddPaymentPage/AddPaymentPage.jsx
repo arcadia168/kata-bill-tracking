@@ -40,30 +40,32 @@ const AddPaymentPage = props => {
     return (
         <div className="add-payment-page__container">
             <TitleBanner title="Add A Bill" />
-            <PaymentDetailsForm
-                name={name}
-                setName={setName}
-                price={price}
-                setPrice={setPrice}
-                nextOccurringDate={nextOccurringDate}
-                setNextOccurringDate={setNextOccurringDate}
-                frequency={frequency}
-                setFrequency={setFrequency}
-            />
-            <PaymentTrackerButton
-                buttonLabel={'Add new payment'}
-                deleteButton={false}
-                onClickHandler={() => {
-                    //TODO: Validate fields here
-                    const newPayment = {
-                        name,
-                        price,
-                        nextOccurringDate,
-                        frequency
-                    }
-                    createNewPayment(newPayment)
-                }}
-            />
+            <div className="add-payment-page__content">
+                <PaymentDetailsForm
+                    name={name}
+                    setName={setName}
+                    price={price}
+                    setPrice={setPrice}
+                    nextOccurringDate={nextOccurringDate}
+                    setNextOccurringDate={setNextOccurringDate}
+                    frequency={frequency}
+                    setFrequency={setFrequency}
+                />
+                <PaymentTrackerButton
+                    buttonLabel={'Add new payment'}
+                    deleteButton={false}
+                    onClickHandler={() => {
+                        //TODO: Validate fields here
+                        const newPayment = {
+                            name,
+                            price,
+                            nextOccurringDate,
+                            frequency
+                        }
+                        createNewPayment(newPayment)
+                    }}
+                />
+            </div>
         </div>
     );
 }
