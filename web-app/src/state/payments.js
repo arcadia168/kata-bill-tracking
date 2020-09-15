@@ -37,6 +37,27 @@ export const updateBillPayment = createAsyncThunk(
   }
 );
 
+export const createBillPayment = createAsyncThunk(
+  "payments/createBillPayment",
+  async (newBillPayment) => {
+    debugger;
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/payments",
+        newBillPayment
+      );
+
+      return response.data;
+    } catch (error) {
+      console.error(
+        `An error occurred creating a new bill payment on the server: ${JSON.stringify(
+          error
+        )}`
+      );
+    }
+  }
+);
+
 export const fetchBillPaymentDetails = createAsyncThunk(
   "payments/fetchBillPaymentDetails",
   async (billPaymentId) => {
@@ -63,11 +84,6 @@ const paymentsSlice = createSlice({
     payments: [],
   },
   reducers: {
-    createPayment: (state, action) => {
-      console.info(`createPayment action handler invoked with paylod:`);
-      console.log(action.payload);
-      return (state.payments = state.concat(action.payload));
-    },
     deletePayment: (state, action) => {
       console.info(`deletePayment action handler invoked with paylod:`);
       console.log(action.payload);
@@ -122,6 +138,15 @@ const paymentsSlice = createSlice({
       state.payments = newUpdatedPayments;
     },
     [fetchBillPaymentDetails.rejected.type]: (state, action) => {},
+    [createBillPayment.pending.type]: (state, action) => {},
+    [createBillPayment.fulfilled.type]: (state, action) => {
+      console.info(
+        `createBillPayment.fulfilled.type action handler invoked with paylod:`
+      );
+      console.log(action.payload);
+      state.payments = state.payments.concat(action.payload);
+    },
+    [createBillPayment.rejected.type]: (state, action) => {},
 
   },
 });
