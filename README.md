@@ -15,6 +15,7 @@ _Please note, the API stores objects in-memory, there is no database, therefore 
     - `cd web-app`
     - `yarn install`
     - `yarn start`
+    - Run tests via `yarn test`
 
 - Open another terminal:
     - Navigate to this repo folder

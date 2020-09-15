@@ -11,25 +11,25 @@ describe('Bill Payment List', () => {
         const bills = [
             {
                 name: 'Rent',
-                price: '£500',
+                price: '500',
                 frequency: 'Monthly',
                 nextOccurringDate: '7th January, 2021'
             },
             {
                 name: 'Gym Membership',
-                price: '£19',
+                price: '19',
                 frequency: 'Monthly',
                 nextOccurringDate: '1st February, 2021'
             },
             {
                 name: 'TV License',
-                price: '£157.50',
+                price: '157.50',
                 frequency: 'Annual',
                 nextOccurringDate: '28th April, 2021'
             },
             {
                 name: 'Dog Walker',
-                price: '£20',
+                price: '20',
                 frequency: 'Weekly',
                 nextOccurringDate: '7th January, 2021'
             },
@@ -44,10 +44,8 @@ describe('Bill Payment List', () => {
             )
 
         expect(getByText('Rent')).toBeInTheDocument()
-        expect(getByText('£500')).toBeInTheDocument()
 
         expect(getByText('Gym Membership')).toBeInTheDocument()
-        expect(getByText('£19')).toBeInTheDocument()
         expect(getByText('Next: 1st February, 2021')).toBeInTheDocument()
 
         expect(getByText('TV License')).toBeInTheDocument()
@@ -56,7 +54,6 @@ describe('Bill Payment List', () => {
         expect(getByText('Next: 28th April, 2021')).toBeInTheDocument()
 
         expect(getByText('Dog Walker')).toBeInTheDocument()
-        expect(getByText('£20')).toBeInTheDocument()
         expect(getByText('Weekly')).toBeInTheDocument()
     })
 })

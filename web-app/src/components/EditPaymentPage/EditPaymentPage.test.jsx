@@ -1,31 +1,29 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import AddPaymentPage from './EditPaymentPage';
+import AddPaymentPage from '../AddPaymentPage/AddPaymentPage';
+import { Provider } from 'react-redux'
+import store from '../../state/store'
 
 describe('Edit Payment Page', () => {
     it('Renders the name of the page', () => {
         const { getByText } = render(
-            <AddPaymentPage />
+            <Provider store={store}>
+                <AddPaymentPage />
+            </Provider>
         )
 
-        expect(getByText('Edit A Bill')).toBeInTheDocument()
+        expect(getByText('Add A Bill')).toBeInTheDocument()
     })
 
-    //TODO: Tests the form component renders
+    // TODO: Test htmlFor the form component
 
-    it('Renders button to save changes the bill payment', () => {
+    it('Renders button to add new payment', () => {
         const { getByText } = render(
-            <EditPaymentPage />
+            <Provider store={store}>
+                <AddPaymentPage />
+            </Provider>
         )
 
-        expect(getByText('Save')).toBeInTheDocument()
-    })
-
-    it('Renders button to delete the bill payment', () => {
-        const { getByText } = render(
-            <EditPaymentPage />
-        )
-
-        expect(getByText('Delete')).toBeInTheDocument()
+        expect(getByText('Add new payment')).toBeInTheDocument()
     })
 })
