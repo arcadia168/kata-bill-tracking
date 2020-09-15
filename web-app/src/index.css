@@ -5,6 +5,8 @@
 @import './components/PaymentTrackerButton/PaymentTrackerButton.css';
 @import './components/PaymentDetailsForm/PaymentDetailsForm.css';
 @import './components/HomePage/HomePage.css';
+@import './components/EditPaymentPage/EditPaymentPage.css';
+@import './components/AddPaymentPage/AddPaymentPage.css';
 
 body {
   margin: 0;

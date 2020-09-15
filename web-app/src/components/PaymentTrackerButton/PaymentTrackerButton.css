@@ -15,6 +15,7 @@
 
 .payment-tracker-button--delete {
     background-color: var(--payment-tracker-red);
+    margin-top: calc(var(--payment-tracker-sizing-unit) * 1);
 }
 
 .payment-tracker-button--action {
